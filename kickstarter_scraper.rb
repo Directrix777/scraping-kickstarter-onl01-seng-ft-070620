@@ -2,14 +2,16 @@
 require 'nokogiri'
 require 'pry'
 
+# projects: kickstarter.css("li.project.grid_4")
+# title: project.css("h2.bbcard_name strong a").text
+# image_link: project.css("div.project-thumbnail a img").attribute("src").value
+# desctiption: project.css("p").text
+# location: project.css("ul.project-meta a span.location-name").text
+# percent_funded: project.css("ul.project-stats li.first.funded strong").text.gsub("%", "").to_i
+
 def create_project_hash
   html = File.read('fixtures/kickstarter.html')
   kickstarter = Nokogiri::HTML(html)
-  # projects: kickstarter.css("li.project.grid_4")
-  # title: project.css("h2.bbcard_name strong a").text
-  # image_link: project.css("div.project-thumbnail a img").attribute("src").value
-  # desctiption: project.css("p").text
-  binding.pry
 end
 
 create_project_hash
